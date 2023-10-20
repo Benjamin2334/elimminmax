@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+int long long n,m ,v[101][101], maxi=0, mini=1000000, maxipoz1, minipoz1,maxipoz2, minipoz2, s=0;
+int main()
+{
+    cin>>n>>m;
+   for(int i=1;i<=n;i++){
+       for(int j=1;j<=m;j++){
+           cin>>v[i][j];
+           if(v[i][j]>=maxi){
+               maxi=v[i][j];
+               maxipoz1=i;
+               maxipoz2=j;
+           }
+           if(v[i][j]<=mini){
+               mini=v[i][j];
+               minipoz1=i;
+               minipoz2=j;
+           }
+       }
+   }
+ for(int i=1;i<=n;i++){
+       for(int j=1;j<=m;j++){
+           if(i==maxipoz1 || i==minipoz1){
+               v[i][j]=0;
+           }
+           if(j==maxipoz2 || j==minipoz2){
+               v[i][j]=0;
+           }
+       }
+ }
+ for(int i=1;i<=n;i++){
+       for(int j=1;j<=m;j++){
+           if(v[i][j]!=0){
+               cout<<v[i][j]<<" ";
+               s=1;
+           }
+       }
+       if(s==1){
+       cout<<'\n';
+       }
+       s=0;
+ }
+    return 0;
+}
